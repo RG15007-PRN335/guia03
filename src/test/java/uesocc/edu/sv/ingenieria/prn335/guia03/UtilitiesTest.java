@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
 /**
  *
- * @author juanca
+ * @author jcsantos
  */
 @RunWith(Arquillian.class)
 public class UtilitiesTest {
@@ -40,19 +40,67 @@ public class UtilitiesTest {
     @Test
     public void probarMetodoCapitalizar() {
         String fraseEsperada2="Pruebas De Unidad Con Junit & Arquillian";
-        String texto="prueBas de UNIDAD con JUnit & arQuillian";
+        String texto="prueBas  de  UNIDAD con   JUnit  & arQuillian";
         String resultado = servicio.capitalizar(texto);
         Assert.assertEquals(fraseEsperada2, resultado);
     }
     
     @Test
     public void probarMetodoContarCoincidencias() {
-        int fraseEsperada3=1;
+        int coincidenciasEsperadas3=1;
         String frase="2017";
         String Cadena = "Bienvenidos a la materia de Programación 3 Ciclo II 2017.";
         int resultado = servicio.contarCoincidencias(Cadena, frase);
-        Assert.assertEquals(fraseEsperada3, resultado);
+        Assert.assertEquals(coincidenciasEsperadas3, resultado);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Test
+    public void probarMetodogetResume1() {
+        String fraseEsperada1 = "Hola Mundo!";
+        String fraseCompleta="Hola Mundo!";
+        String resultado = servicio.getResume(fraseCompleta);
+        Assert.assertEquals(fraseEsperada1, resultado);
     }
     
-
+    @Test
+    public void probarMetodoCapitalizar1() {
+        String fraseEsperada2="";
+        String texto="";
+        String resultado = servicio.capitalizar(texto);
+        Assert.assertEquals(fraseEsperada2, resultado);
+    }
+    
+    @Test
+    public void probarMetodoContarCoincidencias1() {
+        int coincidenciasEsperadas3=2;
+        String frase="MA";
+        String Cadena = "Bienvenidos a la materia de Programación 3 Ciclo II 2017.";
+        int resultado = servicio.contarCoincidencias(Cadena, frase);
+        Assert.assertEquals(coincidenciasEsperadas3, resultado);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Test
+    public void probarMetodogetResume2() {
+        String fraseEsperada1 =null;
+        String fraseCompleta=null;
+        String resultado = servicio.getResume(fraseCompleta);
+        Assert.assertEquals(fraseEsperada1, resultado);
+    }
+    
+    @Test
+    public void probarMetodoCapitalizar2() {
+        String fraseEsperada2=null;
+        String texto=null;
+        String resultado = servicio.capitalizar(texto);
+        Assert.assertEquals(fraseEsperada2, resultado);
+    }
+    
+    @Test
+    public void probarMetodoContarCoincidencias2() {
+        int coincidenciasEsperadas3=0;
+        String frase="bienvenido";
+        String Cadena =null;
+        int resultado = servicio.contarCoincidencias(Cadena, frase);
+        Assert.assertEquals(coincidenciasEsperadas3, resultado);
+    }
 }

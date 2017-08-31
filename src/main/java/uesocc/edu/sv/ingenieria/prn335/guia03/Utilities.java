@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.ejb.LocalBean;
 import javax.enterprise.context.Dependent;
 
-
 /**
  *
  * @author jcsantos
@@ -20,13 +19,21 @@ public class Utilities implements Serializable{
      * @return Las primeras 20 letras del texto recibido.
      */
     public String getResume(String texto) {
+        if(texto==null){
+            return null;
+        }else{
        char caracter=' ';
+       int tamanio=texto.length();
+       if(tamanio>=20){
        String frase="";
         for(int i=0; i<20; i++){
             caracter=texto.charAt(i);
             frase+=caracter;
         }
          return frase;
+       }else          
+       return texto;
+        }
     }
     /**
      * Convierte la primera letra de cada palabra a mayúscula y las restantes en minúsculas, ademas elimina los dobles espacios
@@ -34,6 +41,9 @@ public class Utilities implements Serializable{
      * @return El texto que se ha recibido con cada palabra capitalizada y sin dobles espacios.
      */
     public String capitalizar(String texto) {
+        if(texto==null){
+            return null;
+        }else{
         int cont = 0;
         String frase = "";
         char[] caracteres = texto.toCharArray();
@@ -68,6 +78,7 @@ public class Utilities implements Serializable{
         }
         return frase;
     }
+    }
     
     /**
      * Cuenta la cantidad de veces que se repite una palabra en una cadena de texto
@@ -75,7 +86,12 @@ public class Utilities implements Serializable{
      * @param cadena cadena de texto donde se buscaran las coincidencias.
      * @return La cantidad de coincidencias de la frase en el texto recibido.
      */
-    public int contarCoincidencias(String Cadena, String frase) {   
+    public int contarCoincidencias(String Cadena, String frase) { 
+        if(Cadena==null){
+            return 0;
+        }else{
+        
+            
     int i = 0,contador = 0;
     while (i != -1){
     i = Cadena.indexOf(frase,i);
@@ -85,7 +101,15 @@ public class Utilities implements Serializable{
 }
 }
 return contador;
-}
+
+        
+        
+        
+        
+        }
+    
+    
+    }
 }
 
     
